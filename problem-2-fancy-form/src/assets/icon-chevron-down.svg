@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+    viewBox="0 0 6 4" id="triangle-down">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M.706 1.69L2.51 3.495c.272.272.71.272.982 0l1.803-1.803C5.734 1.252 5.421.5 4.801.5H1.194c-.62 0-.926.752-.488 1.19z"
+        fill="#657795"></path>
+</svg>
