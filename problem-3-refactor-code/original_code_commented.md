@@ -1,4 +1,4 @@
-```
+```js
 // WalletBalance and FormattedWalletBalance have duplicated properties, leading to type redundancy
 // FormattedWalletBalance should extend from WalletBalance
 // Recommend to put formatted property to WalletBalance
