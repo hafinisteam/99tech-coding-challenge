@@ -1,4 +1,4 @@
-```
+```js
 // While loop with i as index for stopping loop
 function sumLoop(n) {
   let i = 1;
