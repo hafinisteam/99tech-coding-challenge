@@ -1,6 +1,7 @@
 import clsx from 'clsx'
-import EmptyImg from '../../assets/empty_state.png'
-import Typography from '../base/Typography'
+
+import EmptyImg from '@/assets/empty_state.png'
+import Typography from '@/components/Base/Typography'
 
 type EmptyPlaceholderProps = {
   description?: string

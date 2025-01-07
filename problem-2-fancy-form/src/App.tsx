@@ -1,26 +1,26 @@
 import clsx from 'clsx'
 
-import NiceModal from '@ebay/nice-modal-react'
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query'
-
-import ButtonTransfer from './components/composite/ButtonTransfer'
-import Exchanger from './components/composite/Exchanger'
-import Switcher from './components/composite/Switcher'
-import { getTokenList } from './services/token'
-import { QueryKey } from './type/query'
-import Spinner from './components/base/Spinner'
+import Button from './components/Base/Button'
+import Spinner from './components/Base/Spinner'
+import Exchanger from './components/TokenSwap/Exchanger'
+import Switcher from './components/TokenSwap/Switcher'
+import useTokenSwap from './components/TokenSwap/hooks/useTokenSwap'
+import Typography from './components/Base/Typography'
+import numbro from 'numbro'
 
 function App() {
-  const { isLoading } = useQuery({
-    queryKey: [QueryKey.TokenList],
-    queryFn: getTokenList,
-  })
+  const {
+    rateData,
+    isRateLoading,
+    isTokenListLoading,
+    appState,
+    handleChangeCurrency,
+    handleConfirmSwap,
+    handleSwapTokenType,
+    handleChangeQuantity,
+  } = useTokenSwap()
 
-  if (isLoading) {
+  if (isTokenListLoading) {
     return (
       <div className="fixed inset-0 flex justify-center items-center">
         <Spinner />
@@ -37,31 +37,42 @@ function App() {
           'border rounded-lg max-sm:w-full w-[450px]'
         )}
       >
-        <Exchanger />
-        <Switcher />
-        <Exchanger disabledInput />
-        <ButtonTransfer />
+        <Exchanger
+          side="from"
+          currentToken={appState.from.currency}
+          quantity={appState.from.quantity}
+          onChangeQuantity={handleChangeQuantity}
+          onPickToken={handleChangeCurrency}
+        />
+        <Switcher onClick={handleSwapTokenType} />
+        <Exchanger
+          side="to"
+          currentToken={appState.to.currency}
+          quantity={appState.to.quantity}
+          loading={isRateLoading}
+          disabledInput
+          onPickToken={handleChangeCurrency}
+        />
+        <div className="flex w-full justify-between items-center">
+          <Typography className="text-content-secondary">Rate</Typography>
+          {isRateLoading ? (
+            <div className="w-40 h-3 bg-slate-200 rounded animate-pulse"></div>
+          ) : (
+            <Typography className="text-content-primary font-semibold">
+              1 {appState.from.currency} ={' '}
+              {numbro(rateData).format({ mantissa: 6 })} {appState.to.currency}
+            </Typography>
+          )}
+        </div>
+        <Button
+          size="lg"
+          title="Confirm Swap"
+          onClick={handleConfirmSwap}
+          disabled={appState.from.quantity === 0}
+        />
       </div>
     </div>
   )
 }
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-})
-
-const Main = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <NiceModal.Provider>
-        <App />
-      </NiceModal.Provider>
-    </QueryClientProvider>
-  )
-}
-
-export default Main
+export default App

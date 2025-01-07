@@ -1,15 +1,14 @@
+import clsx from 'clsx'
 import { Fragment, ReactNode } from 'react'
 
+import IconClose from '@/assets/icon-close.svg'
+import Typography from '@/components/Base/Typography'
 import {
   Dialog,
   DialogPanel,
   Transition,
   TransitionChild,
 } from '@headlessui/react'
-
-import IconClose from '../../assets/icon-close.svg'
-import Typography from '../base/Typography'
-import clsx from 'clsx'
 
 export interface BaseModalProps {
   open: boolean
@@ -67,7 +66,7 @@ const Modal = ({
                   panelClassName
                 )}
               >
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-4">
                   <Typography variant="Action">{title}</Typography>
                   <button onClick={onClose}>
                     <img src={IconClose} alt="icon-close" className="w-6 h-6" />

@@ -1,13 +1,14 @@
-import { useQuery } from '@tanstack/react-query'
-import { getTokenList } from '../services/token'
-import { QueryKey } from '../type/query'
 import { useMemo } from 'react'
-import { TokenItemTyped } from '../type/token'
 
-const useTokenData = () => {
+import { getTokenList } from '@/services/token'
+import { QueryKey } from '@/type/query'
+import { TokenItemTyped } from '@/type/token'
+import { useQuery } from '@tanstack/react-query'
+
+const useTokenMap = () => {
   const { data } = useQuery({
     queryKey: [QueryKey.TokenList],
-    queryFn: getTokenList,
+    queryFn: () => getTokenList(),
     enabled: false,
   })
 
@@ -22,9 +23,8 @@ const useTokenData = () => {
   }, [data])
 
   return {
-    tokenListData: data,
     tokenMap,
   }
 }
 
-export default useTokenData
+export default useTokenMap

@@ -13,6 +13,7 @@ export default {
         primary: '#1452f0',
         'primary-dark': '#0e38a1',
         'dark-pink': '#ac0a0a',
+        error: '#C71A2F',
       },
     },
   },

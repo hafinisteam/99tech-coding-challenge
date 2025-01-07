@@ -1,4 +1,4 @@
 export enum QueryKey {
   TokenList = 'TokenList',
-  SearchToken = 'SearchToken',
+  TokenRate = 'TokenRate',
 }
