@@ -1,7 +1,7 @@
-import IconChevronDown from '@/assets/icon-chevron-down.svg'
-import Typography from '@/components/Base/Typography'
-import useTokenMap from '@/hooks/useTokenMap'
-import { ExchangeSide } from '@/type/store'
+import IconChevronDown from '../../assets/icon-chevron-down.svg'
+import Typography from '../Base/Typography'
+import useTokenMap from '../../hooks/useTokenMap'
+import { ExchangeSide } from '../../type/store'
 
 type TokenPickerProps = {
   currentToken: string

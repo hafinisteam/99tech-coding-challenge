@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import IconLoading from '@/assets/react.svg'
+import IconLoading from '../../assets/react.svg'
 
 const Spinner = ({ className }: { className?: string }) => {
   return (

@@ -2,7 +2,7 @@ import { produce } from 'immer'
 import { useReducer } from 'react'
 import { createContainer } from 'unstated-next'
 
-import { TokenAction, TokenActionKind, TokenSwapStore } from '@/type/store'
+import { TokenAction, TokenActionKind, TokenSwapStore } from '../type/store'
 
 const initState: TokenSwapStore = {
   from: {

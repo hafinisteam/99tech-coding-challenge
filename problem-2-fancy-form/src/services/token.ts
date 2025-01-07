@@ -1,6 +1,6 @@
-import { formatNumber } from '@/lib/formatter'
-import tokenListData from '@/mock/tokens.json'
-import { TokenItemTyped } from '@/type/token'
+import { formatNumber } from '../lib/formatter'
+import tokenListData from '../mock/tokens.json'
+import { TokenItemTyped } from '../type/token'
 
 function sleep(millis: number) {
   return new Promise((resolve) => setTimeout(resolve, millis))

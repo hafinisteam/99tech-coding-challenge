@@ -1,9 +1,10 @@
 import { useMemo } from 'react'
 
-import { getTokenList } from '@/services/token'
-import { QueryKey } from '@/type/query'
-import { TokenItemTyped } from '@/type/token'
 import { useQuery } from '@tanstack/react-query'
+
+import { getTokenList } from '../services/token'
+import { QueryKey } from '../type/query'
+import { TokenItemTyped } from '../type/token'
 
 const useTokenMap = () => {
   const { data } = useQuery({

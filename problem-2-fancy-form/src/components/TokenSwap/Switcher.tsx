@@ -1,4 +1,4 @@
-import IconSwap from '@/assets/icon-swap-vertical.svg'
+import IconSwap from '../../assets/icon-swap-vertical.svg'
 
 const Switcher = ({ onClick }: { onClick: () => void }) => {
   return (

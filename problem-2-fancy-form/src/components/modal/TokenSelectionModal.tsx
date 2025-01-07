@@ -2,17 +2,18 @@ import clsx from 'clsx'
 import debounce from 'lodash.debounce'
 import { ChangeEvent, useMemo, useRef, useState } from 'react'
 
-import IconClear from '@/assets/icon-clear.svg'
-import IconGlass from '@/assets/icon-glass.svg'
-import Spinner from '@/components/Base/Spinner'
-import Typography from '@/components/Base/Typography'
-import EmptyPlaceholder from '@/components/Layout/EmptyPlaceholder'
-import Modal from '@/components/Layout/Modal'
-import { getTokenList } from '@/services/token'
-import { QueryKey } from '@/type/query'
-import { TokenItemTyped } from '@/type/token'
 import NiceModal, { useModal } from '@ebay/nice-modal-react'
 import { useQuery } from '@tanstack/react-query'
+
+import IconClear from '../../assets/icon-clear.svg'
+import IconGlass from '../../assets/icon-glass.svg'
+import { getTokenList } from '../../services/token'
+import { QueryKey } from '../../type/query'
+import { TokenItemTyped } from '../../type/token'
+import Spinner from '../Base/Spinner'
+import Typography from '../Base/Typography'
+import EmptyPlaceholder from '../Layout/EmptyPlaceholder'
+import Modal from '../Layout/Modal'
 
 type TokenItemProps = {
   token: TokenItemTyped

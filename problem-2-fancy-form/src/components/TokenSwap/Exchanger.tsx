@@ -1,14 +1,13 @@
 import clsx from 'clsx'
 import numbro from 'numbro'
-
-import Spinner from '@/components/Base/Spinner'
-import Typography from '@/components/Base/Typography'
-import useTokenMap from '@/hooks/useTokenMap'
-import { ExchangeSide } from '@/type/store'
-
-import TokenPicker from './TokenPicker'
 import { useMemo } from 'react'
-import { isNumber } from '@/lib/formatter'
+
+import useTokenMap from '../../hooks/useTokenMap'
+import { isNumber } from '../../lib/formatter'
+import { ExchangeSide } from '../../type/store'
+import Spinner from '../Base/Spinner'
+import Typography from '../Base/Typography'
+import TokenPicker from './TokenPicker'
 
 type ExchangerProps = {
   side: ExchangeSide

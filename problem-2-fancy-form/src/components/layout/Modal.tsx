@@ -1,14 +1,14 @@
 import clsx from 'clsx'
 import { Fragment, ReactNode } from 'react'
 
-import IconClose from '@/assets/icon-close.svg'
-import Typography from '@/components/Base/Typography'
+import IconClose from '../../assets/icon-close.svg'
 import {
   Dialog,
   DialogPanel,
   Transition,
   TransitionChild,
 } from '@headlessui/react'
+import Typography from '../Base/Typography'
 
 export interface BaseModalProps {
   open: boolean

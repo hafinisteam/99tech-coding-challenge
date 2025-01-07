@@ -1,18 +1,20 @@
-import ConfirmTransferModal from '@/components/Modal/ConfirmTransferModal'
-import TokenSelectionModal from '@/components/Modal/TokenSelectionModal'
-import TokenSwapContext from '@/context/TokenSwapContext'
-import { formatNumber } from '@/lib/formatter'
+import toast from 'react-hot-toast'
+
+import NiceModal from '@ebay/nice-modal-react'
+import { useQuery } from '@tanstack/react-query'
+
+import TokenSwapContext from '../../../context/TokenSwapContext'
 import {
   getExchangeRate,
   getTokenList,
   updateSwapToken,
-} from '@/services/token'
-import { QueryKey } from '@/type/query'
-import { ExchangeSide, TokenActionKind } from '@/type/store'
-import { TokenItemTyped } from '@/type/token'
-import NiceModal from '@ebay/nice-modal-react'
-import { useQuery } from '@tanstack/react-query'
-import toast from 'react-hot-toast'
+} from '../../../services/token'
+import { QueryKey } from '../../../type/query'
+import { ExchangeSide, TokenActionKind } from '../../../type/store'
+import { TokenItemTyped } from '../../../type/token'
+import ConfirmTransferModal from '../../Modal/ConfirmTransferModal'
+import TokenSelectionModal from '../../Modal/TokenSelectionModal'
+import { formatNumber } from '../../../lib/formatter'
 
 function useTokenSwap() {
   const { state: appState, dispatch } = TokenSwapContext.useContainer()

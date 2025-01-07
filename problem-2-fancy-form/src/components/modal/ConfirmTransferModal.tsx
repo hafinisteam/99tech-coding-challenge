@@ -1,7 +1,8 @@
-import Button from '@/components/Base/Button'
-import Typography from '@/components/Base/Typography'
-import Modal from '@/components/Layout/Modal'
 import NiceModal, { useModal } from '@ebay/nice-modal-react'
+
+import Button from '../Base/Button'
+import Typography from '../Base/Typography'
+import Modal from '../Layout/Modal'
 
 type ConfirmTransferModalProps = {
   onConfirm: () => void
