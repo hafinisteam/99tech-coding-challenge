@@ -5,8 +5,7 @@ import Spinner from './components/Base/Spinner'
 import Exchanger from './components/TokenSwap/Exchanger'
 import Switcher from './components/TokenSwap/Switcher'
 import useTokenSwap from './components/TokenSwap/hooks/useTokenSwap'
-import Typography from './components/Base/Typography'
-import numbro from 'numbro'
+import RateOneOne from './components/TokenSwap/RateOneOne'
 
 function App() {
   const {
@@ -34,7 +33,7 @@ function App() {
         className={clsx(
           'flex flex-col space-y-4 items-center',
           'p-6 bg-white border-dimed',
-          'border rounded-lg max-sm:w-full w-[450px]'
+          'border rounded-lg max-sm:w-full w-[450px] max-sm:mx-4'
         )}
       >
         <Exchanger
@@ -53,17 +52,7 @@ function App() {
           disabledInput
           onPickToken={handleChangeCurrency}
         />
-        <div className="flex w-full justify-between items-center">
-          <Typography className="text-content-secondary">Rate</Typography>
-          {isRateLoading ? (
-            <div className="w-40 h-3 bg-slate-200 rounded animate-pulse"></div>
-          ) : (
-            <Typography className="text-content-primary font-semibold">
-              1 {appState.from.currency} ={' '}
-              {numbro(rateData).format({ mantissa: 6 })} {appState.to.currency}
-            </Typography>
-          )}
-        </div>
+        <RateOneOne loading={isRateLoading} rateData={rateData} />
         <Button
           size="lg"
           title="Confirm Swap"
