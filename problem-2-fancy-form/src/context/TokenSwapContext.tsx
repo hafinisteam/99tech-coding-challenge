@@ -13,7 +13,7 @@ const initState: TokenSwapStore = {
     currency: 'ETH',
     quantity: 0,
   },
-}
+} as const
 
 // User immer with reducer to remove object spread on data
 const reducer = produce((draft: TokenSwapStore, action: TokenAction) => {
@@ -43,7 +43,7 @@ const reducer = produce((draft: TokenSwapStore, action: TokenAction) => {
 // Just a context with reducer for easy sharing data
 const useTokenSwapContext = () => {
   const [state, dispatch] = useReducer(reducer, initState)
-
+  
   return {
     state,
     dispatch,
