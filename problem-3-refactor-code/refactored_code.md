@@ -19,7 +19,9 @@ enum BlockchainPriority {
  Default = -99
 }
 
-const WalletPage = ({children, ...rest}: Props) => {
+// Might remove children since it does not use anywhere in the code
+// Just keep it for the sake of explanation
+const WalletPage = ({ children }: Props) => {
   const prices = usePrices();
   const balances = useWalletBalances();
 
