@@ -20,6 +20,7 @@ interface Props extends BoxProps {}
 // From React 18, don't need to use React.FC anymore
 const WalletPage: React.FC<Props> = (props: Props) => {
 // Can use destructing assignment in above parameters
+// Avoid using rest and spread since rest can contain many property
   const { children, ...rest } = props;
   const balances = useWalletBalances();
   const prices = usePrices();
